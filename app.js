@@ -1,7 +1,15 @@
 const http = require('http');
 
 http.createServer((req, res) => {
-        res.write('Hola Mundo');
+
+        res.writeHead(200, { 'Content-Type': 'aplication/json' });
+
+        let salida = {
+            nombre: 'Jesus',
+            edad: 39,
+            url: req.url
+        }
+        res.write(JSON.stringify(salida));
         res.end();
     })
     .listen(8080);
